@@ -22,17 +22,19 @@ public class LoginController
 		private LoginDelegate loginDelegate;
 
 		@RequestMapping(value="/login",method=RequestMethod.GET)
-		public ModelAndView displayLogin_asgfhgfhghfghd(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean)
-		{
+		public ModelAndView displayLogin_asgfhgfhghfghd(HttpServletRequest request)
+		{	
+			LoginBean loginBean=new LoginBean();
 			ModelAndView model = new ModelAndView("login");
+			request.setAttribute("hhh", "request say:i am back");
 			//LoginBean loginBean = new LoginBean();
 			model.addObject("loginBean", loginBean);
 			//结合前缀/jsp,后缀.jsp，得到路径为/jsp/login.jsp,其中还带着一个loginBean对象用来装输入数据！！！
 			return model;
 		}
 		//此处用到了loginBean存放的数据来处理！！！
-		@RequestMapping(value="/login",method=RequestMethod.POST)
-		public ModelAndView executeLogin_afghdfhgfhsd(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean)
+		@RequestMapping(value="/login_post",method=RequestMethod.POST)
+		public ModelAndView executeLogin_afghdfhgfhsd(HttpServletRequest request,@ModelAttribute("loginBean")LoginBean loginBean)
 		{
 				ModelAndView model= null;
 				try

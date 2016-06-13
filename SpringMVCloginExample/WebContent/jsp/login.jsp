@@ -7,8 +7,9 @@
 		<title>Login</title>
 	</head>
 	<body>
+	${hhh}
 		<font color="red">${message}</font>
-		<form:form id="loginForm" method="post" action="login" modelAttribute="loginBean">
+		<form:form id="loginForm" method="post" action="login_post" modelAttribute="loginBean">
 
 			<form:label path="username">Enter your user-name</form:label>
 			<form:input id="username" name="username" path="" /><br>
