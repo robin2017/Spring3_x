@@ -16,20 +16,23 @@ import com.jcg.examples.viewBean.LoginBean;
 
 @Controller
 public class LoginController
-{
+{	
+		//装载的是展现层的组件，不是业务层的，实现解耦！！
 		@Autowired
 		private LoginDelegate loginDelegate;
 
 		@RequestMapping(value="/login",method=RequestMethod.GET)
-		public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean)
+		public ModelAndView displayLogin_asgfhgfhghfghd(HttpServletRequest request, HttpServletResponse response, LoginBean loginBean)
 		{
 			ModelAndView model = new ModelAndView("login");
 			//LoginBean loginBean = new LoginBean();
 			model.addObject("loginBean", loginBean);
+			//结合前缀/jsp,后缀.jsp，得到路径为/jsp/login.jsp,其中还带着一个loginBean对象用来装输入数据！！！
 			return model;
 		}
+		//此处用到了loginBean存放的数据来处理！！！
 		@RequestMapping(value="/login",method=RequestMethod.POST)
-		public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean)
+		public ModelAndView executeLogin_afghdfhgfhsd(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean)
 		{
 				ModelAndView model= null;
 				try
@@ -39,10 +42,13 @@ public class LoginController
 						{
 								System.out.println("User Login Successful");
 								request.setAttribute("loggedInUser", loginBean.getUsername());
+								//成功则是进入新的界面
 								model = new ModelAndView("welcome");
 						}
 						else
 						{
+							//失败则还是原来的界面
+							//并且添加了一个message
 								model = new ModelAndView("login");
 								request.setAttribute("message", "Invalid credentials!!");
 						}
