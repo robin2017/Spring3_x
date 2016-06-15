@@ -20,25 +20,17 @@ import static org.mockito.Mockito.*;
 
 public class MockitoTest {
 	UserService mockUserService=mock(UserService.class);
-	UserServiceImpl mockServiceImpl=mock(UserServiceImpl.class);
-	@Mock
-	LoginBean mockUser;
+
 	@Before
 	public void initMocks_asas(){
 		MockitoAnnotations.initMocks(this);
 	}
 	@Test
 	public void testMockInterface_asas() throws SQLException{
-		when(mockUserService.isValidUser("robin", "ddd")).thenReturn(true);
-		doReturn(true).when(mockServiceImpl).isValidUser("robin", "dsf");
+	
+		doReturn(true).when(mockUserService).isValidUser("robin", "dsf");
 		
-		LoginBean u=new LoginBean();
-		u.setUsername("john");
-		u.setPassword("123456");
-		
-		doNothing().when(mockUserService).isValidUser("robin", "dd");
-		
-		boolean re=mockUserService.isValidUser("r", "d");
+		boolean re=mockUserService.isValidUser("robin", "dsf");
 		
 		assertTrue(re);
 	}
