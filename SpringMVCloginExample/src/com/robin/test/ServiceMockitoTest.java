@@ -18,7 +18,7 @@ import static org.mockito.Mockito.*;
  
 
 
-public class MockitoTest {
+public class ServiceMockitoTest {
 	UserService mockUserService=mock(UserService.class);
 
 	@Before
