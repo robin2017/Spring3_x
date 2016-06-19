@@ -9,5 +9,10 @@ public class GreetingBeforeAdvice {
 	public void beforeGreeting(){
 		System.out.println("how are you");
 	}
+	
+	@Before("execution(* serveTo(..))")
+	public void beforeServing(){
+		System.out.println("how are you");
+	}
  
 }
