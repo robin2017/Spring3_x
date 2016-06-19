@@ -6,14 +6,13 @@ import java.sql.SQLException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
+ 
 import org.mockito.MockitoAnnotations;
 
 import com.jcg.examples.service.UserService;
-import com.jcg.examples.service.impl.UserServiceImpl;
-import com.jcg.examples.viewBean.LoginBean;
+ 
   
-import static org.junit.Assert.*;  
+ 
 import static org.mockito.Mockito.*;  
  
 
