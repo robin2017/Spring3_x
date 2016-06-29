@@ -1,9 +1,8 @@
 function onChangeSelect(){
 	var select=document.getElementById("mainSelect").value;
-	alert(select);
+
 	url=select+".html";
 	
-	alert(url);
 	var xhr=null;
 	if(window.XMLHttpRequest){
 		xhr=new XMLHttpRequest();
@@ -11,11 +10,13 @@ function onChangeSelect(){
 		xhr=new ActiveXObject("Microsoft.XMLHTTP");
 	}
 	
-	xhr.open("post",url,true);
-	xhr.send(null);
+
 	xhr.onreadystatechange=function(){
-		if(xhr.readState==4)
+		//这里是ready，不是read，失误！！！
+		if(xhr.readyState==4)
 			document.getElementById("subSelect").innerHTML=xhr.responseText;
 	}
+	xhr.open("post",url,true);
+	xhr.send(null);
 	
 }

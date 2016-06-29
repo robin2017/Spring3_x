@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Form example</title>
+		<!--此处可以为<></>一种形式，不可<>，</>形式-->
+		<script type="text/javascript" src="EventUtils.js"></script>
+	</head>
+	<body>
+		<form method="post"  action="javascript:alert('submitted')" id="myForm">
+			<ul>
+				<!--input的形式可以为<>格式-->
+				<li>请输入姓名：<input type="text" name="name" value=""></li>
+				<li>请输入年龄：<input type="text" name="age" value=""></li>
+			</ul>
+			<input type="submit" name="submitName" value="提交">
+		</form>
+		<script type="text/javascript">
+			(function(){
+			var form=document.getElementById("myForm");
+			EventUtils.addHandler(form,"submit",function(event){
+				var target=event.target;
+				var btn=target.elements["submitName"];
+				btn.disabled=true;
+			});
+			})();
+		</script>
+	</body>
+</html>
