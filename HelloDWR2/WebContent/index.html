@@ -2,13 +2,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>DWR's  HelloWorld</title>
+<title>DWR's HelloWorld</title>
 <script type='text/javascript' src='dwr/interface/Hello.js'></script>
 <script type='text/javascript' src='dwr/engine.js'></script>
 <script type='text/javascript' src='dwr/util.js'></script>
-<script type='text/javascript' src='hello.js'></script>
 </head>
 <body>
-<input id="user" type="text" /><input type='button' value='哈罗' onclick='hello();' />  <div id="result"></div>
+	<input id="user" type="text" />
+	<input type='button' value='哈罗' onclick='hello();' />
+	<script type="text/javascript">
+		function hello() {
+			var user = $('user').value;
+			Hello.sayHello(user, callback);
+		}
+		function callback(msg) {
+			DWRUtil.setValue('result', msg);
+		}
+	</script>
+	<div id="result"></div>
+
 </body>
 </html>
