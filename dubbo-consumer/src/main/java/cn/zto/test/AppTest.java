@@ -3,6 +3,8 @@
  */
 package cn.zto.test;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 /**   
  *  
  * 
@@ -13,11 +15,14 @@ package cn.zto.test;
  *    
  * Date    	CR/DEFECT   Modified By    Description of change
  */
-import cn.zto.consumer.ConsumerThd;
+
+import cn.zto.service.RobinService;
 
 public class AppTest {
     public static void main(String[] args){
-        ConsumerThd thd = new ConsumerThd();
-        thd.sayHello();
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+                new String[] { "applicationConsumer.xml" });
+        RobinService demoService = (RobinService) context.getBean("demoService");
+        System.out.println(demoService.hello("world"));
     }
 }

@@ -21,7 +21,8 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
                 new String[] { "applicationProvider.xml" });
         
-        context.start();
+    
+        
         System.out.println("按任意键退出");
         System.in.read();
 
