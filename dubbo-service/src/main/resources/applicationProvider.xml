@@ -28,9 +28,9 @@
 
 
 	<!-- designate implementation -->
-	<bean id="demoService" class="cn.zto.service.impl.ProcessDataImpl" />
+	<bean id="demoService" class="cn.zto.service.impl.RobinServiceImpl" />
 
 	<!-- Service interface Concurrent Control -->
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="cn.zto.service.IProcessData" ref="demoService" executes="10" />
+	<dubbo:service interface="cn.zto.service.RobinService" ref="demoService" executes="10" />
 </beans>

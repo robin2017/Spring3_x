@@ -13,6 +13,6 @@ package cn.zto.service;
  *    
  * Date    	CR/DEFECT   Modified By    Description of change
  */
-public interface IProcessData {
+public interface RobinService {
     public String hello(String name); 
 }

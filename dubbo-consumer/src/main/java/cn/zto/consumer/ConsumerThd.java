@@ -17,7 +17,7 @@ import java.io.IOException;
  */
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import cn.zto.service.IProcessData;
+import cn.zto.service.RobinService;
 
 
 
@@ -29,7 +29,7 @@ public class ConsumerThd{
         
         context.start();
 
-        IProcessData demoService = (IProcessData) context.getBean("demoService");
+        RobinService demoService = (RobinService) context.getBean("demoService");
 
         System.out.println(demoService.hello("world"));
 		try {

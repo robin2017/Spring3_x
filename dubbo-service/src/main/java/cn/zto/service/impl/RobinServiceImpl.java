@@ -3,6 +3,9 @@
  */
 package cn.zto.service.impl;
 
+import cn.zto.service.RobinService;
+ 
+
 /**   
  *  
  * 
@@ -13,9 +16,9 @@ package cn.zto.service.impl;
  *    
  * Date    	CR/DEFECT   Modified By    Description of change
  */
-import cn.zto.service.IProcessData;
+ 
 
-public class ProcessDataImpl implements IProcessData {
+public class RobinServiceImpl implements RobinService {
 
     public String hello(String name) {
         System.out.println(name);
